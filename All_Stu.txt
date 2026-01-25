@@ -1,0 +1,272 @@
+# 阶段一（第1-10天）核心任务：Python+数据工具+Git/Linux（AI工程基础）
+## 核心原则
+**无冗余纯核心**，每一步任务对应AI开发高频知识点，命令/代码均为可直接运行的正确版本，每天按「Python核心（主）+ Git（必做）+ Linux（必做）」拆分，标注**核心知识点+实操要求+成果校验**，每日耗时严格适配2-4小时，全程围绕“AI开发实际使用场景”设计，拒绝纯理论。
+### 前置准备（开工前1小时搞定，必做）
+1. 安装工具：Python3.9+/Anaconda3/PyCharm社区版/Git
+2. 环境配置：
+   - Anaconda换国内源（清华/中科大），避免包安装卡顿；
+   - Git配置用户信息（`git config --global user.name "你的名字"`/`git config --global user.email "你的邮箱"`）；
+   - PyCharm配置Anaconda的Python解释器，新建项目命名「AI_Winter_Study」。
+3. 仓库初始化：在PyCharm项目中打开终端，执行`git init`，创建第一个文件夹「Stage1_Python_Linux_Git」，所有阶段一代码/笔记放入此文件夹。
+
+## 通用要求
+1. 所有代码**手动敲写**，禁止复制粘贴，报错先自查（CSDN/Stack Overflow/官方文档），记录报错原因+解决方法（新建txt笔记即可）；
+2. 每日任务完成后，终端执行`git add .`→`git commit -m "第X天：完成Python+Git+Linux核心任务"`→推送到远程仓库（Gitee/GitHub，第3天完成远程关联后执行）；
+3. Linux命令**在Git Bash/Anaconda Prompt**中执行（Windows系统），完全模拟Linux环境，命令与真实Linux服务器一致；
+4. 核心知识点**必须掌握**（能独立写/敲，不看笔记），实操要求**必须完成**（代码/命令无报错，达到预期效果）。
+
+---
+
+# 第1天：Python基础语法+Git初体验+Linux文件基础
+## 核心知识点
+1. Python：变量/数据类型（int/str/float/list）、循环（for/while）、条件判断（if-elif-else）、**自定义函数+参数传递**（AI开发高频）；
+2. Git：仓库初始化、工作区/暂存区/版本库、`git init/add/commit`核心命令；
+3. Linux：**cd/ls/pwd/mkdir/rm**（文件/文件夹操作最基础命令，登服务器第一件事必用）。
+
+## 实操要求（按顺序做，无遗漏）
+### 一、Python核心（1.5h）
+1. 定义3个不同类型变量：数字（成绩）、字符串（姓名）、列表（科目+成绩），打印变量类型（`type()`）；
+2. 写一个**多条件判断**：根据成绩（0-100）判断等级（优秀/良好/及格/不及格），支持手动输入成绩（`input()`）；
+3. 写一个**for循环**：遍历成绩列表，计算总分+平均分，打印结果；
+4. **核心：自定义2个函数**
+   - 函数1：`calc_score(lst)`，接收成绩列表，返回总分、平均分（返回2个值）；
+   - 函数2：`judge_level(score)`，接收单个成绩，返回等级，调用第2步的条件判断逻辑；
+   - 调用2个函数，传入测试数据，验证结果无报错。
+
+### 二、Git核心（0.3h）
+1. 在项目终端执行`git status`，查看未跟踪文件；
+2. 执行`git add Stage1_Python_Linux_Git/`（将阶段一文件夹加入暂存区）；
+3. 执行`git commit -m "第1天：初始化Python代码，完成基础语法"`；
+4. 执行`git log`，查看提交日志，确认提交成功。
+
+### 三、Linux核心（0.2h）
+1. 执行`pwd`，查看当前工作目录（确认在项目根目录）；
+2. 执行`mkdir Linux_Test`，创建Linux测试文件夹；
+3. 执行`cd Linux_Test`，切换到该文件夹，执行`pwd`验证；
+4. 执行`touch test1.txt`，创建空文件，执行`ls`查看文件；
+5. 执行`cd ..`，返回上一级目录，执行`rm -rf Linux_Test`，删除测试文件夹（`-rf`强制删除，高频用法）。
+
+## 成果校验
+1. Python代码：能手动输入成绩，自动判断等级、计算总分平均分，函数调用无报错；
+2. Git：`git log`能看到第一条提交记录，`git status`显示「working tree clean」；
+3. Linux：能独立敲写5个核心命令，无拼写错误，能完成“创建-切换-删除”文件夹流程。
+
+---
+
+# 第2天：Python高频数据结构+Git版本回退+Linux文件编辑
+## 核心知识点
+1. Python：**列表/字典的增删改查+切片**（AI数据处理最核心结构，字典占80%使用场景）、元组/集合（简单了解，高频用列表+字典）；
+2. Git：`git log`（详细日志）、`git checkout 版本号`（**版本回退**，改错代码必备）；
+3. Linux：**cat/vi/more**（文件查看/编辑，服务器上改代码/看日志必用）、`ls -l`（详细文件信息）。
+
+## 实操要求（按顺序做，无遗漏）
+### 一、Python核心（1.5h）
+1. **列表实操**：创建学生成绩列表`score_lst = [85,92,78,90,88]`，完成：
+   - 增：末尾加95（`append`）、指定位置加80（`insert`）；
+   - 删：删除78（`remove`）、删除最后一个元素（`pop`）；
+   - 改：将90改为91（索引赋值）；
+   - 查：切片获取前3个元素、后2个元素（`lst[:3]`/`lst[-2:]`）；
+   - 排序：升序/降序排序（`sort()`/`sort(reverse=True)`），打印每一步操作后的列表。
+2. **字典实操（核心）**：创建学生信息字典`stu_dict = {"name":"张三","age":20,"scores":{"math":90,"english":85,"python":95}}`，完成：
+   - 增：添加键值对`"gender":"男"`、向嵌套字典添加`"ml":88`（机器学习成绩）；
+   - 删：删除`"age"`键值对（`del`）；
+   - 改：将python成绩改为98；
+   - 查：获取math成绩（2种方式：`[]`/`get`，重点掌握`get`，避免键不存在报错）；
+   - 遍历：遍历所有键、所有值、所有键值对（`for k in dict`/`for v in dict.values()`/`for k,v in dict.items()`）。
+3. 综合练习：写一个**学生成绩字典管理小脚本**，支持手动输入“添加/删除/修改/查询”指令，执行对应操作（用if-elif判断指令）。
+
+### 二、Git核心（0.3h）
+1. 修改第1天的Python代码（比如改成绩判断阈值），执行`git add .`→`git commit -m "第2天：修改成绩判断逻辑"`；
+2. 执行`git log --pretty=oneline`，查看简洁版日志，复制**第一个提交的版本号**（前7位即可）；
+3. 执行`git checkout 版本号`，回退到第1天的代码版本，查看代码确认回退成功；
+4. 执行`git checkout master`，切回最新版本（master为主分支，默认）。
+
+### 三、Linux核心（0.2h）
+1. 执行`mkdir Linux_File`，创建文件夹，`cd Linux_File`进入；
+2. 执行`vi test2.txt`，进入vi编辑模式，按`i`插入内容：`AI_Winter_Study_Python_Linux_Git`，按`Esc`，输入`:wq`保存退出；
+3. 执行`cat test2.txt`，查看文件内容（快速查看）；
+4. 执行`ls -l`，查看文件详细信息（权限、创建时间等）；
+5. 执行`cd ..`→`rm -rf Linux_File`，清理测试文件。
+
+## 成果校验
+1. Python：能独立完成列表/字典的增删改查切片，字典管理脚本能响应不同指令，无报错；
+2. Git：能通过版本号回退到历史版本，再切回最新版本，`git log`能清晰看到所有提交记录；
+3. Linux：能独立用vi编辑文件（保存/退出），用cat/ls -l查看文件，无操作失误。
+
+---
+
+# 第3天：Python面向对象+Git远程仓库+Linux权限/进程
+## 核心知识点
+1. Python：**类/对象的定义+实例化**、属性/方法（AI框架/模型开发底层逻辑，比如PyTorch的Model类）、简单构造方法（`__init__`，必学）；
+2. Git：**远程仓库关联**（Gitee/GitHub）、`git push/pull`（本地代码推送到远程，团队协作/代码备份必用）；
+3. Linux：**chmod**（文件权限修改，服务器上运行脚本必用）、**ps**（查看进程，模型训练时看GPU/进程状态必用）、`ls -a`（显示隐藏文件）。
+
+## 实操要求（按顺序做，无遗漏）
+### 一、Python核心（1.5h）
+1. **核心：定义一个AI模型基础类**`AIModel`，包含：
+   - 构造方法`__init__(self, model_name, version)`：初始化模型名称、版本，默认值`model_name="LinearRegression"`，`version="v1.0"`；
+   - 方法1`train(self, data)`：打印「模型{model_name}v{version}正在训练，数据量：{len(data)}」；
+   - 方法2`evaluate(self, acc)`：打印「模型评估准确率：{acc}%」，若acc≥90，打印「模型训练优秀」，否则打印「模型需要优化」；
+2. 实例化2个对象：
+   - 对象1：使用默认参数，`model1 = AIModel()`；
+   - 对象2：自定义参数，`model2 = AIModel("LogisticRegression", "v2.0")`；
+3. 调用2个对象的`train`和`evaluate`方法，传入测试数据（`data = [1,2,3,4,5]`）、测试准确率（85/92），验证结果。
+4. 简单拓展：给类添加一个属性`train_times = 0`，每次调用`train`方法，`train_times+1`，打印训练次数。
+
+### 二、Git核心（0.4h）
+1. 去Gitee/GitHub注册账号，新建**公共远程仓库**，命名「AI_Winter_Study_2026」，勾选「初始化README」；
+2. 复制远程仓库的HTTPS地址（如`https://gitee.com/xxx/AI_Winter_Study_2026.git`）；
+3. 本地项目终端执行`git remote add origin 远程地址`，关联远程仓库；
+4. 执行`git pull origin master --rebase`，拉取远程README到本地，解决冲突（若有）；
+5. 执行`git push -u origin master`，将本地所有代码推送到远程仓库，打开Gitee/GitHub确认推送成功（后续每天只需执行`git push`）。
+
+### 三、Linux核心（0.1h）
+1. 执行`touch linux_test3.sh`，创建一个空的shell脚本文件（服务器运行代码常用.sh文件）；
+2. 执行`ls -l linux_test3.sh`，查看文件权限（默认是`-rw-r--r--`，无执行权限）；
+3. 执行`chmod +x linux_test3.sh`，添加执行权限，再次`ls -l`验证（权限变为`-rwxr-xr-x`，x为执行权限）；
+4. 执行`ps -ef | grep python`，查看当前运行的Python进程（无则显示grep本身，了解用法即可）；
+5. 执行`rm -f linux_test3.sh`，删除测试文件（`-f`强制删除文件）。
+
+## 成果校验
+1. Python：能独立定义类、写构造方法、实例化对象、调用方法，类的属性能随方法调用更新，无报错；
+2. Git：本地代码成功推送到远程仓库，Gitee/GitHub能看到所有文件，后续可一键`git push`提交；
+3. Linux：能通过`chmod +x`添加执行权限，能通过`ps`查看进程，理解权限标识的意义（r/w/x）。
+
+---
+
+# 第4天：Python异常处理+文件读写+Git分支+Linux Conda环境
+## 核心知识点
+1. Python：**try/except/finally异常处理**（AI数据处理必用，避免文件不存在/数据格式错误导致程序崩溃）、**csv/txt文件读写**（AI数据加载最基础方式）；
+2. Git：**分支创建/切换/合并**（`git branch/checkout/merge`，团队开发核心，避免主分支代码混乱）；
+3. Linux：**conda环境管理**（`create/activate/remove`，AI开发多环境隔离必备，不同项目用不同Python/框架版本）、`which python`（查看Python解释器路径）。
+
+## 实操要求（按顺序做，无遗漏）
+### 一、Python核心（1.5h）
+1. **异常处理实操**：写一个代码片段，完成：
+   - 尝试打开一个不存在的文件`test.csv`，读取内容；
+   - 用`try-except`捕获**文件不存在异常（FileNotFoundError）**，打印「文件不存在，请检查路径」；
+   - 用`except Exception`捕获所有其他异常，打印「程序出错：{错误信息}」；
+   - 用`finally`块，打印「文件操作结束」（无论是否报错，都会执行）。
+2. **文件读写核心（csv/txt）**：
+   - TXT文件：写一个脚本，将学生成绩列表`["张三:90","李四:85","王五:95"]`写入`stu_score.txt`，再从文件中读取内容，按行打印，去除换行符（`strip()`）；
+   - CSV文件：用Python内置`csv`模块，将学生成绩数据写入`stu_score.csv`（表头：姓名,数学,Python），写入3行数据，再从csv文件中读取，打印每一行内容；
+3. 综合练习：将文件读写包裹在异常处理中，处理**文件权限错误（PermissionError）**、**数据格式错误**等异常。
+
+### 二、Git核心（0.3h）
+1. 执行`git branch dev`，创建开发分支`dev`（团队开发中，开发代码都在dev分支，主分支master保持稳定）；
+2. 执行`git checkout dev`，切换到dev分支，执行`git branch`验证（当前分支前有*）；
+3. 修改Python代码（比如给AIModel类加一个新方法），执行`git add .`→`git commit -m "dev分支：给AIModel添加新方法"`；
+4. 执行`git checkout master`，切回主分支，执行`git merge dev`，将dev分支的代码合并到主分支；
+5. 执行`git push`，将合并后的代码推送到远程仓库。
+
+### 三、Linux核心（0.2h）
+1. **核心：Conda环境创建与激活**（AI开发必备，全程无报错）：
+   - 执行`conda create -n ai_base python=3.9 -y`，创建名为ai_base的虚拟环境，Python版本3.9（`-y`自动确认）；
+   - 执行`conda activate ai_base`，激活该环境（终端前缀变为`(ai_base)`，表示激活成功）；
+   - 执行`which python`，查看当前Python解释器路径（在conda环境目录下，确认隔离成功）；
+   - 执行`conda install numpy pandas -y`，在该环境中安装numpy和pandas；
+   - 执行`conda deactivate`，退出虚拟环境；
+   - （可选）执行`conda remove -n ai_base --all -y`，删除虚拟环境（测试用，后续会用到ai_base环境）。
+
+## 成果校验
+1. Python：能独立处理文件读写异常，熟练读写txt/csv文件，csv模块能实现表头+数据的写入和读取，无报错；
+2. Git：能完成分支的创建、切换、合并，主分支能同步开发分支的代码，远程仓库更新成功；
+3. Linux：能独立创建/激活/退出Conda虚拟环境，在环境中安装包，理解多环境隔离的意义，命令无拼写错误。
+
+---
+
+# 第5天：Python高效语法+Git冲突解决+Linux包安装/换源
+## 核心知识点
+1. Python：**列表推导式/字典推导式**（AI数据处理提速必备，替代繁琐for循环）、**匿名函数lambda**+**高阶函数map/filter/zip**（数据处理高频组合）；
+2. Git：**分支冲突解决**（团队开发必遇场景，核心是手动修改冲突文件，重新提交）；
+3. Linux：**pip/conda换国内源**（解决包安装慢的问题，必做配置）、`pip list/pip show`（查看已装包/包信息）、`conda clean -y`（清理conda缓存）。
+
+## 实操要求（按顺序做，无遗漏）
+### 一、Python核心（1.5h）
+1. **推导式核心（列表+字典）**：
+   - 列表推导式：生成1-20的偶数列表、生成成绩列表中≥90的成绩列表，替代传统for循环（一行代码实现）；
+   - 字典推导式：将两个列表`names = ["张三","李四","王五"]`、`scores = [90,85,95]`合并为字典`{姓名:成绩}`，一行代码实现；
+   - 带条件的推导式：生成1-100的奇数的平方列表，`[x**2 for x in range(1,101) if x%2==1]`。
+2. **lambda+map/filter/zip**：
+   - lambda：定义匿名函数，计算两个数的和、计算成绩的平方，调用并打印结果；
+   - map：用map+lambda将成绩列表`[85,92,78]`转换为百分制+5的列表，用`list()`转换为可迭代对象；
+   - filter：用filter+lambda筛选成绩列表中≥80的成绩，用`list()`转换并打印；
+   - zip：用zip将姓名和成绩列表打包，遍历并打印每一组（姓名,成绩）。
+3. 综合练习：用推导式+lambda+map，实现“从成绩字典中筛选出Python成绩≥90的学生，生成新字典”。
+
+### 二、Git核心（0.4h）
+1. **模拟分支冲突（必做，掌握解决方法）**：
+   - 切到dev分支：`git checkout dev`，修改`stu_score.txt`文件，添加一行「赵六:92」，提交：`git add .`→`git commit -m "dev：添加赵六成绩"`；
+   - 切回master分支：`git checkout master`，**修改同一个文件的同一行**，比如添加一行「赵六:90」，提交：`git add .`→`git commit -m "master：添加赵六成绩"`；
+   - 执行`git merge dev`，触发**分支冲突**（终端显示`CONFLICT (content): Merge conflict in stu_score.txt`）；
+2. **解决冲突**：
+   - 打开冲突文件`stu_score.txt`，看到冲突标记`<<<<<<< HEAD`（master分支内容）、`=======`（分隔符）、`>>>>>>> dev`（dev分支内容）；
+   - 手动修改文件，保留需要的内容，**删除所有冲突标记**，保存文件；
+   - 执行`git add stu_score.txt`→`git commit -m "解决分支冲突：统一赵六成绩为92"`→`git push`，完成冲突解决。
+
+### 三、Linux核心（0.1h）
+1. **永久换源（必做，一次配置终身受用）**：
+   - Conda换源：在Git Bash中执行命令，添加清华源（复制粘贴即可，无拼写错误）；
+   - Pip换源：在用户目录下创建`pip`文件夹，新建`pip.ini`文件，添加阿里/清华源，保存；
+2. 激活ai_base环境：`conda activate ai_base`，执行`pip install opencv-python`，测试换源后安装速度（明显变快）；
+3. 执行`pip list`，查看已装包；执行`pip show numpy`，查看numpy的版本、路径等信息；
+4. 执行`conda clean -y`，清理conda缓存，释放磁盘空间。
+
+## 成果校验
+1. Python：能熟练使用推导式替代for循环，能独立组合lambda+map/filter/zip处理数据，一行代码实现复杂数据转换，无报错；
+2. Git：能主动触发分支冲突，手动修改冲突文件，完成冲突解决，合并后代码无错误，远程仓库同步成功；
+3. Linux：完成conda/pip永久换源，包安装速度显著提升，能通过pip list/show查看包信息，命令无报错。
+
+---
+
+# 第6-10天 核心任务（按此格式执行，无冗余）
+### 核心方向
+从Python基础过渡到**AI数据处理核心库Numpy/Pandas**，Git仅需每日常规提交，Linux聚焦AI开发高频命令，所有操作均在**ai_base Conda环境**中执行（激活后操作），核心目标：**能独立用Numpy处理矩阵数据、用Pandas处理表格数据，完成AI开发前的基础数据清洗**。
+
+## 第6天：Numpy入门-数组创建+基本运算+Linux查找命令
+### 核心知识点
+1. Numpy：**数组创建（np.array/np.zeros/np.ones/np.arange）**、数组属性（ndim/shape/size/dtype）、**数组基本运算（加减乘除/矩阵乘法np.dot）**；
+2. Linux：**grep/find**（服务器上查找日志/代码文件必用）、**管道命令|**（组合多个命令，高频）。
+### 核心实操
+1. 创建不同维度数组（一维/二维/三维），查看属性，实现数组的加减乘除、标量运算、矩阵乘法；
+2. 用`find . -name "*.py"`查找项目中所有Python文件，用`grep "AIModel" *.py`查找包含AIModel的文件。
+
+## 第7天：Numpy进阶-索引切片+数据重塑+Linux系统信息
+### 核心知识点
+1. Numpy：**数组索引/切片（与Python列表的区别）**、**数据重塑np.reshape**（AI模型输入数据必做，调整维度）、随机数生成（np.random.rand/np.random.randint，造测试数据）；
+2. Linux：`uname -a`（查看系统信息）、`free -m`（查看内存）、`df -h`（查看磁盘空间，模型训练前必看）。
+### 核心实操
+1. 对二维数组进行行/列索引、切片，实现数据重塑（如将1维数组转为2维/4维），生成指定范围的随机数数组，筛选随机数中≥0.5的元素；
+2. 执行上述Linux命令，查看系统/内存/磁盘信息，理解输出结果的意义。
+
+## 第8天：Pandas入门-Series/DataFrame+Loc/Iloc筛选
+### 核心知识点
+Pandas：**Series/DataFrame的创建**（AI表格数据处理核心）、数据属性（info/describe/head/tail）、**Loc/Iloc数据筛选**（按标签/按索引，必学，占Pandas使用80%）。
+### 核心实操
+1. 创建Series（一维）、DataFrame（二维，含表头），查看数据基本信息、描述性统计，取前5行/后3行；
+2. 用Loc按列名筛选（如筛选Python成绩列）、用Iloc按索引筛选（如筛选前3行前2列），实现多条件筛选（如Python成绩≥90且数学≥85）。
+
+## 第9天：Pandas进阶-数据清洗+缺失值/重复值处理
+### 核心知识点
+Pandas：**缺失值处理（isnull/dropna/fillna）**、**重复值处理（duplicated/drop_duplicates）**、数据类型转换（astype，如将字符串成绩转为数字），AI数据预处理第一步必做。
+### 核心实操
+1. 创建含缺失值、重复值的DataFrame，检测缺失值/重复值，实现**删除缺失值**、**用均值/中位数填充缺失值**，删除重复值；
+2. 将字符串类型的成绩列转为int类型，处理转换过程中的异常（如非数字字符）。
+
+## 第10天：Pandas综合-分组聚合+数据合并+阶段一复盘
+### 核心知识点
+Pandas：**groupby分组聚合**（按类别统计，如按班级求平均分）、**数据合并（merge/concat）**（多表合并，AI数据整合必用）、数据保存（to_csv/to_excel，清洗后数据保存）。
+### 核心实操
+1. 按班级对学生成绩DataFrame分组，求各科平均分、总分，实现多表合并（按姓名合并成绩表和信息表），将清洗后的最终数据保存为csv/excel文件；
+2. **阶段一全复盘**：整理前9天的代码/笔记/报错记录，在Git中提交「阶段一复盘：完成Python+Numpy+Pandas+Git+Linux核心基础」，推送到远程仓库，梳理未掌握的知识点并补全。
+
+---
+
+# 阶段一最终成果要求（必须全部达成）
+1. **代码**：拥有完整的Python+Numpy+Pandas代码库，能独立实现AI开发基础的语法、数据处理、文件读写，无报错；
+2. **工具**：能熟练使用Git进行版本管理、远程推送、分支合并、冲突解决，能独立创建/激活Conda环境，完成包安装/换源；
+3. **Linux**：能独立敲写**20个AI开发高频Linux命令**，无拼写错误，能在服务器上完成基础的文件操作、环境配置、日志查找；
+4. **仓库**：Gitee/GitHub远程仓库有完整的阶段一文件，提交记录连续，README有阶段一学习总结（简单写即可）；
+5. **能力**：能独立解决代码/命令报错，具备基础的AI工程思维，为后续机器学习/深度学习打下坚实的工程基础。
+
+我可以帮你**整理第6-10天的详细实操步骤+可直接运行的代码模板**，你直接敲写修改即可，不用自己构思代码，需要吗？
