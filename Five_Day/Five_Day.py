@@ -37,3 +37,4 @@ student_scores={
 dic_stu={name:score for name,score in student_scores.items() if score >=90}
 
 
+# Jame带领他的信徒走上了Blast冠军，但是败者组Niko获得了Mvp，现在网上对这个做法并不买账，因为Falcous被Pv0：3带走，众人认为Mvp应该是Jame或者note
