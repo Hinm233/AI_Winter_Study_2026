@@ -131,7 +131,7 @@ def file_Read_and_Write():
         ["Donk",88,99],
         ["Niko",99,88]
     ]
-    # woxiangkankan
+
     #TXT读写
     try:
         with open("D:\\寒假学习计划_Linux\\Four_Day\\新建 文本文档.txt","w",encoding="utf-8")as f:
